@@ -31,7 +31,6 @@ namespace CardGame.ApplicationFiles
         /// <returns></returns>
         public List<Card> CreateDeck(int numberOfCard)
         {
-           
             List<Card> NewDeck = new List<Card>();
             int counter = 0;
             for (int i = 0; i < numberOfCard * 2; i++)
@@ -84,9 +83,6 @@ namespace CardGame.ApplicationFiles
                 gamer.Score -= 10;
                 return -1;
             }
-            
-
-
         }
         public string FindCardImage(int CardID)
         {

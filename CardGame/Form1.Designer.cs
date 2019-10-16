@@ -40,6 +40,7 @@
             this.lblGamerNow = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnStartGame = new System.Windows.Forms.Button();
             this.pnlLeftBar.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlTop.SuspendLayout();
@@ -48,6 +49,7 @@
             // pnlLeftBar
             // 
             this.pnlLeftBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlLeftBar.Controls.Add(this.btnStartGame);
             this.pnlLeftBar.Controls.Add(this.btnShutDown);
             this.pnlLeftBar.Controls.Add(this.panel1);
             this.pnlLeftBar.Dock = System.Windows.Forms.DockStyle.Left;
@@ -160,6 +162,24 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.TimerCounter);
             // 
+            // btnStartGame
+            // 
+            this.btnStartGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(58)))));
+            this.btnStartGame.FlatAppearance.BorderSize = 0;
+            this.btnStartGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStartGame.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartGame.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnStartGame.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnStartGame.Location = new System.Drawing.Point(2, 413);
+            this.btnStartGame.Margin = new System.Windows.Forms.Padding(2);
+            this.btnStartGame.Name = "btnStartGame";
+            this.btnStartGame.Size = new System.Drawing.Size(192, 64);
+            this.btnStartGame.TabIndex = 12;
+            this.btnStartGame.Text = "Yeniden Başlat";
+            this.btnStartGame.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStartGame.UseVisualStyleBackColor = false;
+            this.btnStartGame.Click += new System.EventHandler(this.btnStartGame_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +190,7 @@
             this.Controls.Add(this.pnlLeftBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -195,6 +216,7 @@
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Button btnShutDown;
         private System.Windows.Forms.Label lblScoreTitle;
+        private System.Windows.Forms.Button btnStartGame;
     }
 }
 

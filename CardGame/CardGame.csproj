@@ -106,5 +106,11 @@
   <ItemGroup>
     <None Include="ApplicationData\Card-Behind.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play_64px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,7 +16,7 @@ namespace CardGame
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1("Hasan","Erdem"));
+            Application.Run(new Form2());
         }
     }
 }

@@ -15,13 +15,23 @@ namespace CardGame
         public Form2()
         {
             InitializeComponent();
+            btnStart.Image = ApplicationData.Data.Play_32px;
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+
+        private void btnStart_Click(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1(textBox1.Text.ToUpper(),textBox2.Text.ToUpper());
-            f1.Show();
-            this.Hide();
+            if (!String.IsNullOrWhiteSpace(textBox1.Text) || !String.IsNullOrWhiteSpace(textBox2.Text))
+            {
+                Form1 f1 = new Form1(textBox1.Text.ToUpper(), textBox2.Text.ToUpper());
+                f1.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Boş Değerler Var","isNull Empty or White Space");
+            }
+            
         }
     }
 }

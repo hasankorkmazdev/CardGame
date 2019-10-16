@@ -20,6 +20,7 @@ namespace CardGame
         {
             InitializeComponent();
             btnShutDown.Image = ApplicationData.Data.Shutdown64px;
+            btnStartGame.Image = ApplicationData.Data.Play_64px;
             this.Player1 = Player1;
             this.Player2 = Player2;
 
@@ -87,14 +88,14 @@ namespace CardGame
                 firstCard = (PictureBox)sender;
                 cardFlag = 1;
                 firstCard.Image = new Bitmap(newGame.FindCardImage((int)firstCard.Tag));
-              
+
             }
             else if (cardFlag == 1)
             {
                 lastCard = (PictureBox)sender;
                 cardFlag = 0;
                 lastCard.Image = new Bitmap(newGame.FindCardImage((int)lastCard.Tag));
-               
+
                 if (changeGamer == 0)
                 {
                     timerCounter = 5;
@@ -116,9 +117,22 @@ namespace CardGame
                     }
 
                 }
-                if (cardStatus==0)
+                if (cardStatus == 0)
                 {
-                    MessageBox.Show("Oyun Bitti");
+                    firstCard.Visible = false;
+                    lastCard.Visible = false;
+                    timer1.Stop();
+                    lblGamer1.Text = "";
+                    
+                    if (gamer1.Score>=gamer2.Score)
+                    {
+                        MessageBox.Show("Oyun Bitti...\nKazanan Oyuncu : "+gamer1.Name, "Win Win Win");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Oyun Bitti...\nKazanan Oyuncu : " + gamer2.Name,"Win Win Win");
+                    }
+                    
                 }
                 ChangeGamer(ref changeGamer);
 
@@ -140,7 +154,7 @@ namespace CardGame
                 isLoad = false;
                 timer1.Stop();
             }
-            else if (waitOneMiliSecond==true)
+            else if (waitOneMiliSecond == true)
             {
                 waitOneMiliSecond = false;
             }
@@ -169,7 +183,7 @@ namespace CardGame
         }
         public void ChangeGamer(ref int gamerID)
         {
-            
+
             if (firstCard != null)
             {
                 firstCard.Image = ApplicationData.Data.Card_Behind;
@@ -195,10 +209,19 @@ namespace CardGame
                 lblGamerNow.Text = "Sıradaki Oyuncu : " + gamer2.Name.ToString(); ;
             }
         }
+
+
+
         //TODO: Oyun Bitiş Kontrol Yapılcak
 
 
+        private void btnStartGame_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1(Player1,Player2);
+            f1.Show();
+            this.Hide();
 
+        }
         private void btnShutDown_Click(object sender, EventArgs e)
         {
             Application.Exit();
