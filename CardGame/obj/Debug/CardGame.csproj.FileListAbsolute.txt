@@ -15,8 +15,8 @@ C:\Users\HasanKorkmaz\Downloads\CardGame-master\CardGame-master\CardGame\bin\Deb
 C:\Users\HasanKorkmaz\Downloads\CardGame-master\CardGame-master\CardGame\obj\Debug\CardGame.csprojAssemblyReference.cache
 C:\Users\HasanKorkmaz\Downloads\CardGame-master\CardGame-master\CardGame\obj\Debug\CardGame.Form1.resources
 C:\Users\HasanKorkmaz\Downloads\CardGame-master\CardGame-master\CardGame\obj\Debug\CardGame.Form2.resources
-C:\Users\HasanKorkmaz\Downloads\CardGame-master\CardGame-master\CardGame\obj\Debug\CardGame.Properties.Resources.resources
 C:\Users\HasanKorkmaz\Downloads\CardGame-master\CardGame-master\CardGame\obj\Debug\CardGame.csproj.GenerateResource.cache
-C:\Users\HasanKorkmaz\Downloads\CardGame-master\CardGame-master\CardGame\obj\Debug\CardGame.csproj.CoreCompileInputs.cache
 C:\Users\HasanKorkmaz\Downloads\CardGame-master\CardGame-master\CardGame\obj\Debug\CardGame.exe
 C:\Users\HasanKorkmaz\Downloads\CardGame-master\CardGame-master\CardGame\obj\Debug\CardGame.pdb
+C:\Users\HasanKorkmaz\Downloads\CardGame-master\CardGame-master\CardGame\obj\Debug\CardGame.ApplicationData.Data.resources
+C:\Users\HasanKorkmaz\Downloads\CardGame-master\CardGame-master\CardGame\obj\Debug\CardGame.Properties.Resources.resources
