@@ -54,6 +54,14 @@
     <Compile Include="ApplicationFiles\Card.cs" />
     <Compile Include="ApplicationFiles\Game.cs" />
     <Compile Include="ApplicationFiles\Gamer.cs" />
+    <Compile Include="ApplicationFiles\IO\InputOutput.cs" />
+    <Compile Include="ApplicationFiles\Score.cs" />
+    <Compile Include="ApplicationFiles\ScoreList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationFiles\ScoreList.Designer.cs">
+      <DependentUpon>ScoreList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +79,9 @@
     <EmbeddedResource Include="ApplicationData\Data.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Data.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationFiles\ScoreList.resx">
+      <DependentUpon>ScoreList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -111,6 +122,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Play_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save_64px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

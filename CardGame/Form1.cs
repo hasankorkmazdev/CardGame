@@ -21,6 +21,7 @@ namespace CardGame
             InitializeComponent();
             btnShutDown.Image = ApplicationData.Data.Shutdown64px;
             btnStartGame.Image = ApplicationData.Data.Play_64px;
+            btnSave.Image = ApplicationData.Data.Save_64px;
             this.Player1 = Player1;
             this.Player2 = Player2;
 
@@ -38,7 +39,7 @@ namespace CardGame
         int timerCounter = 5;
         bool isLoad = true;
         bool colorTracking = false;
-        bool waitOneMiliSecond = false;
+   
         #endregion
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -95,7 +96,6 @@ namespace CardGame
                 lastCard = (PictureBox)sender;
                 cardFlag = 0;
                 lastCard.Image = new Bitmap(newGame.FindCardImage((int)lastCard.Tag));
-
                 if (changeGamer == 0)
                 {
                     timerCounter = 5;
@@ -134,7 +134,8 @@ namespace CardGame
                     }
                     
                 }
-                ChangeGamer(ref changeGamer);
+                waitOneMiliSecond.Start();
+               
 
             }
             lblGamer1.Text = gamer1.Name + " : " + gamer1.Score;
@@ -154,10 +155,7 @@ namespace CardGame
                 isLoad = false;
                 timer1.Stop();
             }
-            else if (waitOneMiliSecond == true)
-            {
-                waitOneMiliSecond = false;
-            }
+           
             else if (timerCounter == 0)
             {
 
@@ -222,6 +220,44 @@ namespace CardGame
             this.Hide();
 
         }
+
+        bool oneMiliSecond = false;
+        private void waitOneMiliSecond_Tick(object sender, EventArgs e)
+        {
+            if (oneMiliSecond==true)
+            {
+                waitOneMiliSecond.Stop();
+                oneMiliSecond = false; ;
+                ChangeGamer(ref changeGamer);
+            }
+            oneMiliSecond = true;
+        }
+
+        private void SaveGame_Click(object sender, EventArgs e)
+        {
+            int stat = 0;
+            ApplicationFiles.Score newScore = new ApplicationFiles.Score();
+            newScore.Player1 = gamer1.Name;
+            newScore.Point1 = gamer1.Score;
+            newScore.Player2 = gamer2.Name;
+            newScore.Point2 = gamer2.Score;
+            stat = newScore.SavePoint();
+            if (stat == 1)
+            {
+                MessageBox.Show("Kaydedildi");
+            }
+            else
+            {
+                MessageBox.Show("Hata Oluştu Kaydedilemedi");
+            }
+        }
+
+        private void btnScoreList_Click(object sender, EventArgs e)
+        {
+            ApplicationFiles.ScoreList scoreList = new ScoreList();
+            scoreList.ShowDialog();
+        }
+
         private void btnShutDown_Click(object sender, EventArgs e)
         {
             Application.Exit();

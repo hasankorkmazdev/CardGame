@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlLeftBar = new System.Windows.Forms.Panel();
+            this.btnStartGame = new System.Windows.Forms.Button();
             this.btnShutDown = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblScoreTitle = new System.Windows.Forms.Label();
@@ -40,7 +41,9 @@
             this.lblGamerNow = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnStartGame = new System.Windows.Forms.Button();
+            this.waitOneMiliSecond = new System.Windows.Forms.Timer(this.components);
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnScoreList = new System.Windows.Forms.Button();
             this.pnlLeftBar.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlTop.SuspendLayout();
@@ -49,6 +52,8 @@
             // pnlLeftBar
             // 
             this.pnlLeftBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlLeftBar.Controls.Add(this.btnScoreList);
+            this.pnlLeftBar.Controls.Add(this.btnSave);
             this.pnlLeftBar.Controls.Add(this.btnStartGame);
             this.pnlLeftBar.Controls.Add(this.btnShutDown);
             this.pnlLeftBar.Controls.Add(this.panel1);
@@ -57,6 +62,24 @@
             this.pnlLeftBar.Name = "pnlLeftBar";
             this.pnlLeftBar.Size = new System.Drawing.Size(200, 550);
             this.pnlLeftBar.TabIndex = 0;
+            // 
+            // btnStartGame
+            // 
+            this.btnStartGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(58)))));
+            this.btnStartGame.FlatAppearance.BorderSize = 0;
+            this.btnStartGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStartGame.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartGame.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnStartGame.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnStartGame.Location = new System.Drawing.Point(2, 413);
+            this.btnStartGame.Margin = new System.Windows.Forms.Padding(2);
+            this.btnStartGame.Name = "btnStartGame";
+            this.btnStartGame.Size = new System.Drawing.Size(192, 64);
+            this.btnStartGame.TabIndex = 12;
+            this.btnStartGame.Text = "Yeniden Başlat";
+            this.btnStartGame.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStartGame.UseVisualStyleBackColor = false;
+            this.btnStartGame.Click += new System.EventHandler(this.btnStartGame_Click);
             // 
             // btnShutDown
             // 
@@ -162,23 +185,46 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.TimerCounter);
             // 
-            // btnStartGame
+            // waitOneMiliSecond
             // 
-            this.btnStartGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(58)))));
-            this.btnStartGame.FlatAppearance.BorderSize = 0;
-            this.btnStartGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStartGame.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartGame.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnStartGame.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnStartGame.Location = new System.Drawing.Point(2, 413);
-            this.btnStartGame.Margin = new System.Windows.Forms.Padding(2);
-            this.btnStartGame.Name = "btnStartGame";
-            this.btnStartGame.Size = new System.Drawing.Size(192, 64);
-            this.btnStartGame.TabIndex = 12;
-            this.btnStartGame.Text = "Yeniden Başlat";
-            this.btnStartGame.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStartGame.UseVisualStyleBackColor = false;
-            this.btnStartGame.Click += new System.EventHandler(this.btnStartGame_Click);
+            this.waitOneMiliSecond.Interval = 1000;
+            this.waitOneMiliSecond.Tick += new System.EventHandler(this.waitOneMiliSecond_Tick);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(58)))));
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.Location = new System.Drawing.Point(2, 345);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(192, 64);
+            this.btnSave.TabIndex = 13;
+            this.btnSave.Text = "Kayet";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.SaveGame_Click);
+            // 
+            // btnScoreList
+            // 
+            this.btnScoreList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(58)))));
+            this.btnScoreList.FlatAppearance.BorderSize = 0;
+            this.btnScoreList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnScoreList.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnScoreList.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnScoreList.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnScoreList.Location = new System.Drawing.Point(2, 277);
+            this.btnScoreList.Margin = new System.Windows.Forms.Padding(2);
+            this.btnScoreList.Name = "btnScoreList";
+            this.btnScoreList.Size = new System.Drawing.Size(192, 64);
+            this.btnScoreList.TabIndex = 14;
+            this.btnScoreList.Text = "Puan Listesi";
+            this.btnScoreList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnScoreList.UseVisualStyleBackColor = false;
+            this.btnScoreList.Click += new System.EventHandler(this.btnScoreList_Click);
             // 
             // Form1
             // 
@@ -217,6 +263,9 @@
         private System.Windows.Forms.Button btnShutDown;
         private System.Windows.Forms.Label lblScoreTitle;
         private System.Windows.Forms.Button btnStartGame;
+        private System.Windows.Forms.Timer waitOneMiliSecond;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnScoreList;
     }
 }
 

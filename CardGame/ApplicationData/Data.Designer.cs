@@ -93,6 +93,16 @@ namespace CardGame.ApplicationData {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap Save_64px {
+            get {
+                object obj = ResourceManager.GetObject("Save_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap Shutdown64px {
             get {
                 object obj = ResourceManager.GetObject("Shutdown64px", resourceCulture);
